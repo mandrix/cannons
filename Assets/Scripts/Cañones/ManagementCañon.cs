@@ -6,7 +6,7 @@ public class ManagementCañon : MonoBehaviour
 {
     private Vector3 mousePosition;
     private bool findBarral = false;
-    private bool isSetCannon = false;
+    public bool isSetCannon = false;
     public GameObject deployCannon;
     public GameObject createCannon;
     public GameObject shootPrefab;
@@ -77,7 +77,7 @@ public class ManagementCañon : MonoBehaviour
     {
         Debug.Log("se soltó el cannon");
         Debug.Log(findBarral);
-        if (findBarral)
+        if (findBarral && receipt)
         {
             receipt.UnsetReceipt();
             receipt.SetCannon(this);

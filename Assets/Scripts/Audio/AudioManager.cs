@@ -4,15 +4,36 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+
+    public AudioSource audioSource;
+
+    public AudioClip menu;
+    public AudioClip normalLvl;
+    public AudioClip hardLvl;
+    public AudioClip endLvl;
+    public AudioClip winLvl;
+    public AudioClip loseLvl;
+    public AudioClip bossLvl;
+
+
+    private void Start()
     {
-        
     }
 
-    // Update is called once per frame
-    void Update()
+
+    public void PlayMenu() => PlayClip(menu);
+    public void PlayNormalLvl() => PlayClip(normalLvl);
+    public void PlayHardLvl() => PlayClip(hardLvl);
+    public void PlayEndLvl() => PlayClip(endLvl);
+    public void PlayWinLvl() => PlayClip(winLvl);
+    public void PlayLoseLvl() => PlayClip(loseLvl);
+    public void PlayBossLvl() => PlayClip(bossLvl);
+
+
+    void PlayClip(AudioClip clip)
     {
-        
+        audioSource.Pause();
+        audioSource.clip = clip;
+        audioSource.Play();
     }
 }

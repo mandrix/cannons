@@ -5,10 +5,12 @@ public class GameManager : MonoBehaviour
 {
     private CrearCañon spawnCannon;
     public List<ManagementCañon> cannons;
+    public AudioManager AudioManager;
     void Start()
     {
         spawnCannon = GetComponent<CrearCañon>();
         GameFlow1();
+        AudioManager.PlayNormalLvl();
     }
 
     
