@@ -6,8 +6,10 @@ public class GameManager : MonoBehaviour
     private CrearCañon spawnCannon;
     public List<ManagementCañon> cannons;
     public AudioManager AudioManager;
+    public GameObject[,] enemysMatriz;
     void Start()
     {
+        enemysMatriz = new GameObject[5, 3];
         spawnCannon = GetComponent<CrearCañon>();
         GameFlow1();
         AudioManager.PlayNormalLvl();
@@ -30,17 +32,17 @@ public class GameManager : MonoBehaviour
         {
             cannon.Shoot();
         }
-        // poner  a los cañones a atacar 
+
         //validad el gane 
         // poner a los enemigos a moverse
         //validad  perdida 
 
-        foreach (ManagementCañon cannon in cannons)
+        foreach (ManagementCañon cannon in cannons)       // volver a mover los cañones
         {
             cannon.UnsetCannon();
-        }
-        //GameFlow1();
-    }
+        }                                                           
+        Invoke("GameFlow1", 5f);  // reiniciar el ciclo
+    }                                                               
 
     void GameFlow1()
     {
