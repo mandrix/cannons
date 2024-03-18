@@ -75,8 +75,6 @@ public class ManagementCañon : MonoBehaviour
 
     private void OnMouseUp()
     {
-        Debug.Log("se soltó el cannon");
-        Debug.Log(findBarral);
         if (findBarral && receipt)
         {
             receipt.UnsetReceipt();

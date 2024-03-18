@@ -41,12 +41,11 @@ public class GameManager : MonoBehaviour
         {
             cannon.UnsetCannon();
         }                                                           
-        Invoke("GameFlow1", 5f);  // reiniciar el ciclo
+        Invoke(nameof(GameFlow1), 5f);  // reiniciar el ciclo
     }                                                               
 
     void GameFlow1()
     {
-        Debug.Log("se puede");
         ManagementCañon newCannon = spawnCannon.SpawnCañon();
         newCannon.SetManager(this);
         foreach (ManagementCañon cannon in cannons)
