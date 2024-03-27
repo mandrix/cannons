@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09f4a76c3a5109747ba0328861978568, type: 3}
+  m_Name: Cuadricula
+  m_EditorClassIdentifier: 
+  filas:
+  - {fileID: 11400000, guid: 47cd723ad429dd54ba24e713f19e982e, type: 2}
+  - {fileID: 11400000, guid: ea9eec85f91290c4d9d2551319c248b3, type: 2}
+  - {fileID: 11400000, guid: 1f5a391298f601a4496a547a2b93ece4, type: 2}

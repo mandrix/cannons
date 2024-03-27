@@ -5,12 +5,15 @@ using UnityEngine;
 public class PirateManager : MonoBehaviour
 {
     private PirateAnimatorManager animatorManager;
+    private GameManager manager;
     [SerializeField]
     [Tooltip("La vida inicial del Enemigo.")]
     [Range(0, 100)]
     private int hp = 5;
 
-    public Transform pivot;
+    [SerializeField]
+    private GameObject barrel;
+
     void Start()
     {
         animatorManager = gameObject.GetComponent<PirateAnimatorManager>();
@@ -23,27 +26,45 @@ public class PirateManager : MonoBehaviour
         animatorManager.PlayGetHit();
         if (hp <= 0)
         {
+            manager.RemovePirate(this);
             GetComponentInChildren<PirateTakesDamage>().Delete();
             Invoke(nameof(Delete), 5f);
             animatorManager.PlayFall();
         }
     }
 
-    public void D() {
-        Vector3 newPosition = transform.position;
-        newPosition.x = pivot.localPosition.x;
-        transform.position = newPosition;
+    public int SetHp(int newHp) => hp = newHp;
+    public void SetManager(GameManager newManager) => manager = newManager;
+
+    public void SetPositionPirate(Transform center)
+    {
+        transform.position = center.position;
     }
-    IEnumerator RelocatePirate()
+    public void Advance()
+    {
+        GameObject nextBarrel = manager.matriz.GetObjectInFrontOf(barrel);
+        if (manager.matriz.GetObjectInFrontOf(nextBarrel))
+        {
+            StartCoroutine(RelocatePirate(nextBarrel));
+        }
+        else
+        {
+            animatorManager.PlayAttack();
+        }
+    }
+    IEnumerator RelocatePirate(GameObject nextBarrel)
     {
         animatorManager.PlayAdvance();
-        float f = animatorManager.PirateAnimator.GetCurrentAnimatorStateInfo(0).length;
+        // float f = animatorManager.PirateAnimator.GetCurrentAnimatorStateInfo(0).length;
         yield return new WaitForSeconds(1.04f);              // hacer algo para que las 2 animaciones tengan su tiempo aqui
 
-        Vector3 newPosition = transform.position;
-        newPosition.x = pivot.localPosition.x;
-        transform.position = newPosition;
+        SetBarrel(nextBarrel);
+        SetPositionPirate(nextBarrel.transform.GetChild(0).gameObject.transform);
+        
     }
     public void Delete() => Destroy(gameObject);
 
+    public GameObject Barrel => barrel;
+
+    public void SetBarrel(GameObject newBarrel) => barrel = newBarrel;
 }

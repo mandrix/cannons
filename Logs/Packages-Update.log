@@ -59,3 +59,15 @@ The following packages were updated:
   com.unity.test-framework from version 1.1.31 to 1.1.33
   com.unity.timeline from version 1.6.4 to 1.7.6
   com.unity.visualscripting from version 1.8.0 to 1.9.1
+
+=== Tue Mar 26 20:26:44 2024
+
+Packages were changed.
+Update Mode: mergeDefaultDependencies
+
+The following packages were added:
+  com.unity.2d.sprite@1.0.0
+  com.unity.ext.nunit@1.0.6
+  com.unity.modules.subsystems@1.0.0
+The following packages were updated:
+  com.unity.textmeshpro from version 3.0.6 to 3.0.7

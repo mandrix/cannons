@@ -15,6 +15,7 @@ public class ManagementCañon : MonoBehaviour
     public float shootSpeed = 10f;
     public int damage = 1;
     public ReceiptCannon receipt;
+    public Transform center;
 
     public void ShootUp(int up) {
         damage += up;
@@ -31,6 +32,8 @@ public class ManagementCañon : MonoBehaviour
     }
 
     public void SetManager(GameManager newManager) => manager = newManager;
+
+    public void SetCenter(Transform newCenter) => center = newCenter;
 
     public void SetReceipt(ReceiptCannon newReceipt) => receipt = newReceipt;
 
@@ -49,7 +52,9 @@ public class ManagementCañon : MonoBehaviour
     {
         transform.position = center.position;
     }
-
+    public void CenterCannon() {
+        SetPositionCañon(center);
+    }
     public void UnsetCannon() => isSetCannon = false;
 
     public void SetCannon() => isSetCannon = true;
@@ -80,6 +85,10 @@ public class ManagementCañon : MonoBehaviour
             receipt.UnsetReceipt();
             receipt.SetCannon(this);
             manager.GameFlow2();
+        }
+        else
+        {
+            CenterCannon();
         }
     }
 }
