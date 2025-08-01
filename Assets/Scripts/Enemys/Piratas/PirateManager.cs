@@ -14,6 +14,12 @@ public class PirateManager : MonoBehaviour
     [SerializeField]
     private GameObject barrel;
 
+    [SerializeField]
+    private List<Sprite> spritesHp;
+
+    [SerializeField]
+    private GameObject uiHp;
+
     void Start()
     {
         animatorManager = gameObject.GetComponent<PirateAnimatorManager>();
@@ -23,6 +29,7 @@ public class PirateManager : MonoBehaviour
     public void TakeDamage(int damage)
     {
         hp -= damage;
+        SetHp(hp);
         animatorManager.PlayGetHit();
         if (hp <= 0)
         {
@@ -33,7 +40,23 @@ public class PirateManager : MonoBehaviour
         }
     }
 
-    public int SetHp(int newHp) => hp = newHp;
+    public void SetHp(int newHp)
+    {
+        // Set the new hp value
+        hp = newHp;
+        // Ensure the hp value is within the bounds of the sprite list
+        if (hp >= 0 && hp <= spritesHp.Count)
+        {
+            // Get the SpriteRenderer component of the uiHp GameObject
+            SpriteRenderer spriteRenderer = uiHp.GetComponent<SpriteRenderer>();
+
+            // Set the sprite to the corresponding one in the list
+            if (spriteRenderer != null)
+            {
+                spriteRenderer.sprite = spritesHp[hp];
+            }
+        }
+    }
     public void SetManager(GameManager newManager) => manager = newManager;
 
     public void SetPositionPirate(Transform center)
