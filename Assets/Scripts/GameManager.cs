@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    private CrearCañon spawnCannon;
-    public List<ManagementCañon> cannons;
+    private CannonCreator spawnCannon;
+    public List<CannonManagement> cannons;
     public List<PirateManager> pirates;
     public AudioManager AudioManager;
     public Transform centerCannon;
@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
     {
         matriz = GetComponent<Matriz>();
         matriz.SetDimensions(4, 5);
-        spawnCannon = GetComponent<CrearCañon>();
+        spawnCannon = GetComponent<CannonCreator>();
         spawnPirate = GetComponent<PirateSpawnManager>();
         spawnPirate.SetMatriz(matriz);
         nextRound();
@@ -62,15 +62,15 @@ public class GameManager : MonoBehaviour
             pirate.Advance();
         }
     }
-    public CrearCañon SpawnCannon() => spawnCannon;
+    public CannonCreator SpawnCannon() => spawnCannon;
 
     public void GameFlow2()
     {
-        foreach (ManagementCañon cannon in cannons)
+        foreach (CannonManagement cannon in cannons)
         {
             cannon.SetCannon();
         }
-        foreach (ManagementCañon cannon in cannons)
+        foreach (CannonManagement cannon in cannons)
         {
             cannon.Shoot();
         }
@@ -79,7 +79,7 @@ public class GameManager : MonoBehaviour
         // poner a los enemigos a moverse
         //validad  perdida 
 
-        foreach (ManagementCañon cannon in cannons) // volver a mover los cañones
+        foreach (CannonManagement cannon in cannons) // volver a mover los cannones
         {
             cannon.UnsetCannon();
         }                                                       
@@ -90,11 +90,11 @@ public class GameManager : MonoBehaviour
     void GameFlow1()
     {
         //NextPirate();
-        ManagementCañon newCannon = spawnCannon.SpawnCañon();
+        CannonManagement newCannon = spawnCannon.SpawnCannon();
         newCannon.SetManager(this);
         newCannon.SetCenter(centerCannon);
         newCannon.CenterCannon();
-        foreach (ManagementCañon cannon in cannons)
+        foreach (CannonManagement cannon in cannons)
         {
             cannon.UnsetCannon();
         }

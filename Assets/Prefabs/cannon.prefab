@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4263151087459152358}
   - component: {fileID: 3988872335465876670}
   m_Layer: 0
-  m_Name: Sphere
+  m_Name: Center
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -59,6 +59,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -164,6 +167,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -223,7 +229,7 @@ GameObject:
   - component: {fileID: 5279950883389486175}
   - component: {fileID: 648368680017275100}
   m_Layer: 0
-  m_Name: "Ca\xF1onDeployeado"
+  m_Name: deployCannon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -271,6 +277,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -332,7 +341,7 @@ GameObject:
   - component: {fileID: 3651947263662501240}
   - component: {fileID: 7016453041072147350}
   m_Layer: 0
-  m_Name: "Ca\xF1onCreado "
+  m_Name: createdCannon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -380,6 +389,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -437,13 +449,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 19135802571136217}
+  - component: {fileID: 1254491944817123332}
   - component: {fileID: 2268870262365508148}
   - component: {fileID: 1314326347080495635}
   - component: {fileID: 2775998031048641174}
-  - component: {fileID: 6938397282939317670}
   - component: {fileID: 8084554764987169291}
   m_Layer: 0
-  m_Name: "Ca\xF1on"
+  m_Name: cannon
   m_TagString: Canon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -466,6 +478,27 @@ Transform:
   - {fileID: 7377712229504749179}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 270}
+--- !u!114 &1254491944817123332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8406595068398703764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34f964a447b0bc546b35a27fb2647c92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSetCannon: 0
+  deployCannon: {fileID: 3359425282050641716}
+  createCannon: {fileID: 3779247436590852724}
+  shootPrefab: {fileID: 3129200342344496425, guid: 3e29573f06c0a7e4fa986fff41de17af, type: 3}
+  shootPoint: {fileID: 5391918032274562235}
+  shootSpeed: 6.05
+  damage: 1
+  receipt: {fileID: 0}
+  center: {fileID: 3730922352992147656}
 --- !u!33 &2268870262365508148
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -491,6 +524,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -539,26 +575,6 @@ CapsuleCollider:
   m_Height: 3.3102932
   m_Direction: 1
   m_Center: {x: -9.455217e-17, y: 0.1370078, z: 0.1753836}
---- !u!114 &6938397282939317670
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8406595068398703764}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0366cc924ce1d945b02b53a43117d95, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isSetCannon: 0
-  deployCannon: {fileID: 3359425282050641716}
-  createCannon: {fileID: 3779247436590852724}
-  shootPrefab: {fileID: 3129200342344496425, guid: 3e29573f06c0a7e4fa986fff41de17af, type: 3}
-  shootPoint: {fileID: 5391918032274562235}
-  shootSpeed: 2
-  damage: 1
-  receipt: {fileID: 0}
 --- !u!54 &8084554764987169291
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -566,10 +582,10 @@ Rigidbody:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8406595068398703764}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}

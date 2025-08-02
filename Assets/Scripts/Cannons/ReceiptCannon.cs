@@ -5,11 +5,11 @@ using UnityEngine;
 public class ReceiptCannon : MonoBehaviour
 {
     public Transform parent;
-    public ManagementCañon cannon;    // valor que dicta si ya hay un cañon aqui, al inicio del turno 
-    static ReceiptCannon where;       // valor que dicta donde esta el cañon seteado
+    public CannonManagement cannon;    // valor que dicta si ya hay un cannon aqui, al inicio del turno 
+    static ReceiptCannon where;       // valor que dicta donde esta el cannon seteado
 
 
-    public void SetCannon(ManagementCañon newCannon) {
+    public void SetCannon(CannonManagement newCannon) {
         if (cannon)
         {
             cannon.ShootUp(newCannon.GetDamage());
@@ -27,7 +27,7 @@ public class ReceiptCannon : MonoBehaviour
             if (!where)
             {
                 where = this;
-                ManagementCañon managementCannon = other.GetComponent<ManagementCañon>();
+                CannonManagement managementCannon = other.GetComponent<CannonManagement>();
                 managementCannon.getDeployCannon().GetComponent<Transform>().parent = null;
                 managementCannon.getCreateCannon().SetActive(false);
                 managementCannon.getDeployCannon().SetActive(true);
@@ -46,7 +46,7 @@ public class ReceiptCannon : MonoBehaviour
             if (this == where)
             {
                 where = null;
-                ManagementCañon managementCannon = other.GetComponent<ManagementCañon>();
+                CannonManagement managementCannon = other.GetComponent<CannonManagement>();
                 managementCannon.getDeployCannon().GetComponent<Transform>().parent = other.transform;
                 managementCannon.getCreateCannon().SetActive(true);
                 managementCannon.getDeployCannon().SetActive(false);

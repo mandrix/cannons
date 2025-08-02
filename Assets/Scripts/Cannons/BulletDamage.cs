@@ -5,7 +5,7 @@ using UnityEngine;
 public class BulletDamage : MonoBehaviour
 {
     [SerializeField]
-    [Tooltip("El daño de la bala.")]
+    [Tooltip("El damage de la bala.")]
     [Range(1, 10)]
     private int damage = 1; // Atributo privado
 

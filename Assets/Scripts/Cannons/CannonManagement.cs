@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ManagementCañon : MonoBehaviour
+public class CannonManagement : MonoBehaviour
 {
     private Vector3 mousePosition;
     private bool findBarral = false;
@@ -12,6 +12,7 @@ public class ManagementCañon : MonoBehaviour
     public GameObject shootPrefab;
     public Transform shootPoint;
     private GameManager manager;
+    [Range(0, 10)]
     public float shootSpeed = 10f;
     public int damage = 1;
     public ReceiptCannon receipt;
@@ -28,7 +29,7 @@ public class ManagementCañon : MonoBehaviour
 
         Rigidbody balaRigidbody = newShoot.GetComponent<Rigidbody>();
 
-        balaRigidbody.velocity = shootPoint.forward * shootSpeed;
+        balaRigidbody.linearVelocity = shootPoint.forward * shootSpeed;
     }
 
     public void SetManager(GameManager newManager) => manager = newManager;
@@ -48,12 +49,12 @@ public class ManagementCañon : MonoBehaviour
         return createCannon;
     }
 
-    public void SetPositionCañon(Transform center)
+    public void SetPositionCannon(Transform center)
     {
         transform.position = center.position;
     }
     public void CenterCannon() {
-        SetPositionCañon(center);
+        SetPositionCannon(center);
     }
     public void UnsetCannon() => isSetCannon = false;
 

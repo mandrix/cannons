@@ -20,7 +20,7 @@ public class Fila : ScriptableObject
         [Range(0, 1)]
         public int tipo = 0;
 
-        [Tooltip("cuanto daño recibira antes de morir")]
+        [Tooltip("cuanto damage recibira antes de morir")]
         [Range(1, 5)]
         public int hp = 1;
 
